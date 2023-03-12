@@ -1,7 +1,7 @@
 const express = require('express')
 const SpotifyWebApi = require('spotify-web-api-node')
 const dotenv = require('dotenv').config()
-const cors = require('cors')
+const cors = require("cors")
 const bodyParser = require('body-parser')
 const clientSecret = process.env.CLIENT_SECRET
 const clientID = process.env.CLIENT_ID
@@ -38,8 +38,8 @@ app.post('/login', (req, res) => {
         clientSecret: clientSecret
     })
 
-    spotifyApi.authorizationCodeGrant(code).then(data => {
-        console.log(data)
+    spotifyApi.authorizationCodeGrant(code)
+    .then(data => {
         res.json({
             accessToken: data.body.access_token,
             refreshToken: data.body.refresh_token,
